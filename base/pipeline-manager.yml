@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+    name: pipeline-manager
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pipeline-manager
+subjects:
+- kind: ServiceAccount
+  name: pipeline-manager
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: pipeline-manager
+  apiGroup: ""
